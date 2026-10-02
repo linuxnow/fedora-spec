@@ -1,0 +1,14 @@
+name: Public docs
+on:
+  push:
+  pull_request:
+
+jobs:
+  public-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Self-test the guard
+        run: python3 scripts/check-public-docs.py --self-test
+      - name: README has no build command, internal docs stay out
+        run: python3 scripts/check-public-docs.py
