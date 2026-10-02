@@ -110,7 +110,7 @@ $ livemedia-creator --make-iso --ks fedora-44-live-jam-xfce.ks --project Audinux
 For aarch64:
 
 First, create a Fedora aarch64 minimal virtual machine:
-```  
+```
 # Install the aarch64 QEMU system emulator and UEFI firmware
 $ sudo dnf install qemu-system-aarch64 edk2-aarch64
 
@@ -154,14 +154,14 @@ $  genisoimage -output cloud-init.iso -volid cidata -joliet -rock cloud-init/use
 ```
 
 Once inside the VM:
-```  
+```
 # Expand the filesystem to use the resized disk
 $ sudo growpart /dev/vda 4
 $ sudo resize2fs /dev/vda4    # or btrfs filesystem resize if using btrfs
 
 # Install build tools
 $ sudo dnf install -y lorax livecd-tools git
-  
+
 # Clone your spec repo to get the kickstart file
 $ git clone https://github.com/audinux/fedora-spec
 
